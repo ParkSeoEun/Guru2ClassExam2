@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.guru2classexam">
+
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- GPS, 현재 위치 찾기 권한 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- 카메라 사용을 위한 Provider 선언 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.guru2classexam"
+            android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <activity android:name=".firebase.BoardInsertActivity"></activity>
+        <activity android:name=".firebase.BoardActivity" />
+        <activity android:name=".firebase.LoginActivity" />
+        <activity android:name=".GoogleMapActivity" /> <!-- 구글맵 사용 API Key 등록 -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCdiGVK_phDqdyU0_ZKjs_V671gvow6xcs" />
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
