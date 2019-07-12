@@ -15,6 +15,7 @@
         android:text="새메모 작성" />
 
     <ListView
+        android:id="@+id/lstBoard"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9">
